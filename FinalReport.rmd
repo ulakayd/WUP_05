@@ -59,6 +59,14 @@ This percent barchart shows the drug is effective in preventing aids, the percen
 
 ### Numerical Descriptive Results
 
+```{r}
+table1 <- xtabs(~infected + treatment, data=druguserData)
+rowPerc(table1)
+colPerc(table1)
+```
+
+in the top graph, if you where infected with aids then 24.29 were getting the drug and 75.71 where getting the placebo. If the drug was not effective the numbers would be 50 and 50 since they are not this helps prove that the drug is effective.
+
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
 ## Inferential Results
