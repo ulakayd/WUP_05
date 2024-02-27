@@ -17,10 +17,27 @@ triUmp <-read.csv(file="triUmpsal.csv",header=TRUE)
 
 A new  preventative aides drug (triUmpsal) is under test in clinical trials. Consider only the DrugUsers, does this drug seem effective?  Hint - use dplyr to obtain that subpopulation with the filter command.
 
+$H_0$: Is the treatment effective on infected drug users.
+
+
 # Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
 
+Variables we use are:
+
+treatment - categorical  
+DrugUser - categorical   
+infected - categorical  
+
+infected depends on treatment among drug users.
+
+We get just the drug users from the population
+
+```{r}
+druguserData = select(triUmp, treatment, DrugUser, infected)
+druguserData = filter(druguserData, DrugUser == "yes")
+```
 # Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
@@ -30,6 +47,15 @@ A new  preventative aides drug (triUmpsal) is under test in clinical trials. Con
 ### Graphical Descriptive Results
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
+
+```{r}
+barchartGC(~infected + treatment,data=druguserData)
+barchartGC(~infected + treatment,data=druguserData, type="percent")
+
+```
+
+
+This percent barchart shows the drug is effective in preventing aids, the percent of people infected is much higher in the people who where given the placebo drug.
 
 ### Numerical Descriptive Results
 
