@@ -17,7 +17,8 @@ triUmp <-read.csv(file="triUmpsal.csv",header=TRUE)
 
 A new  preventative aides drug (triUmpsal) is under test in clinical trials. Consider only the DrugUsers, does this drug seem effective?  Hint - use dplyr to obtain that subpopulation with the filter command.
 
-$H_0$: Is the treatment effective on infected drug users.
+$H_0$: The treatment is not effective in preventing aids in those with the vaccine.
+$H_A$ The treatment is effective in preventing contracting aids in those that got the vaccine.
 
 
 # Methods
@@ -65,15 +66,26 @@ rowPerc(table1)
 colPerc(table1)
 ```
 
-in the top graph, if you where infected with aids then 24.29 were getting the drug and 75.71 where getting the placebo. If the drug was not effective the numbers would be 50 and 50 since they are not this helps prove that the drug is effective.
+in the top graph, those infected with aids 24.29 were getting the drug and 75.71 where getting the placebo. If the drug was not effective the numbers would be 50 and 50 since they are not this helps prove that the drug is effective.
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
 ## Inferential Results
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+
+The odds value is 0.35 to 1 that you will contract aids if you have gotten the vaccine.
+
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
 
 # Discussion and Conclusion
+
+The question if the vaccine was effective in preventing aids in the drugusers who has been given the vaccine versus those with the placebo. Our boxplot as well as our graph shows those being effected with the virus while taking the drug at 24.21 vs 75.79 in those taking the placebo odds. The odds not being 50/50 show there is a difference between those taking the vaccine veruss not, also the odd value of 0.35 to 1 shows that there is a low chance of getting the virus with the vaccine. We are able to reject the null hypothesis and conclude that the vaccine has been effective in preventing aids in the drug users versus those given the placebo 
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
