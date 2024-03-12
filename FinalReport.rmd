@@ -17,7 +17,8 @@ triUmp <-read.csv(file="triUmpsal.csv",header=TRUE)
 
 A new  preventative aides drug (triUmpsal) is under test in clinical trials. Consider only the DrugUsers, does this drug seem effective?  Hint - use dplyr to obtain that subpopulation with the filter command.
 
-$H_0$: The treatment is not effective in preventing aids in those with the vaccine.
+$H_0$: The treatment is not effective in preventing aids in those with the vaccine.   
+
 $H_A$ The treatment is effective in preventing contracting aids in those that got the vaccine.
 
 
@@ -56,7 +57,7 @@ barchartGC(~infected + treatment,data=druguserData, type="percent")
 ```
 
 
-This percent barchart shows the drug is effective in preventing aids, the percent of people infected is much higher in the people who where given the placebo drug.
+This percent barchart shows the drug is effective in preventing aids, the percent of people infected is much higher in the people who where given the placebo drug, compared to those who where given the vaccine they where less likely to get aids.
 
 ### Numerical Descriptive Results
 
